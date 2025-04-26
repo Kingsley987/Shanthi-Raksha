@@ -9,15 +9,17 @@ import {
   BookOpen,
   Settings,
   HelpCircle,
-  Shield
+  Shield,
+  X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 interface SidebarProps {
   isOpen: boolean;
+  onClose: () => void; // <-- Add onClose prop
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { user } = useAuth();
 
   const navItems = [
@@ -42,6 +44,16 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       }`}
     >
       <div className="h-full flex flex-col justify-between overflow-y-auto">
+        {/* Close button */}
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={onClose}
+            className="p-1 rounded-md text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+
         <div className="px-4 py-6">
           <div className="mb-8 px-2">
             <div className="flex items-center justify-center space-x-2 p-3 bg-primary-50 rounded-lg">
