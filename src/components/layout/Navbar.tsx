@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-10">
+    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-20 w-full">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <button
@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                 </button>
                 
                 {notificationsOpen && (
-                  <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-2 z-20 animate-fade-in">
+                  <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-2 z-30 animate-fade-in">
                     <div className="px-4 py-2 border-b border-neutral-100">
                       <h3 className="font-medium text-neutral-900">Notifications</h3>
                     </div>
@@ -94,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                 </button>
                 
                 {userMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-20 animate-fade-in">
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-30 animate-fade-in">
                     <a href="/profile" className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50">Your Profile</a>
                     <a href="/settings" className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50">Settings</a>
                     <button
