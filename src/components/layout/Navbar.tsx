@@ -23,7 +23,11 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-20 w-full">
+    <header 
+      className={`bg-white shadow-sm fixed top-0 z-20 w-full transition-all duration-300 ${
+        isSidebarOpen ? 'left-64' : 'left-0'
+      }`}
+    >
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <button
@@ -33,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
           >
             {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          
+
           <a href="/" className="flex items-center">
             <Shield className="h-8 w-8 text-primary-700" />
             <span className="ml-2 text-xl font-semibold text-primary-800">Shanthi Raksha</span>
@@ -43,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
         <div className="flex items-center space-x-4">
           {isAuthenticated ? (
             <>
+              {/* Notification Button */}
               <div className="relative">
                 <button
                   className="p-2 text-neutral-700 hover:text-primary-700 hover:bg-primary-50 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -54,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                     3
                   </span>
                 </button>
-                
+
                 {notificationsOpen && (
                   <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-2 z-30 animate-fade-in">
                     <div className="px-4 py-2 border-b border-neutral-100">
@@ -80,7 +85,8 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                   </div>
                 )}
               </div>
-              
+
+              {/* User Menu */}
               <div className="relative">
                 <button
                   className="flex items-center space-x-2 focus:outline-none"
@@ -92,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                   </div>
                   <span className="hidden md:block text-sm font-medium text-neutral-700">{user?.name}</span>
                 </button>
-                
+
                 {userMenuOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-30 animate-fade-in">
                     <a href="/profile" className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50">Your Profile</a>
