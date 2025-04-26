@@ -37,8 +37,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 pt-16 h-full bg-white border-r border-neutral-200 w-64 transition-transform duration-300 ease-in-out z-10 ${
-        isOpen ? 'transform-none' : '-translate-x-full lg:transform-none'
+      className={`fixed top-0 left-0 h-full bg-white border-r border-neutral-200 w-64 pt-16 z-30 transition-transform duration-300 ease-in-out ${
+        isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}
     >
       <div className="h-full flex flex-col justify-between overflow-y-auto">
