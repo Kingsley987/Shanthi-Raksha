@@ -19,13 +19,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navbar onMenuToggle={toggleSidebar} isSidebarOpen={isSidebarOpen} />
       <Sidebar isOpen={isSidebarOpen} />
       
-      <main className="flex-grow pt-16 lg:pl-64">
+      <main
+        className={`flex-grow pt-16 transition-all duration-300 ease-in-out ${
+          isSidebarOpen ? 'ml-64' : 'ml-0'
+        }`}
+      >
         <div className="px-4 py-6 sm:px-6 lg:px-8">
           {children}
         </div>
       </main>
-      
-      <div className="lg:pl-64">
+
+      <div
+        className={`transition-all duration-300 ease-in-out ${
+          isSidebarOpen ? 'ml-64' : 'ml-0'
+        }`}
+      >
         <Footer />
       </div>
     </div>
