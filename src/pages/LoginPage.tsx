@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Shield, Mail, Lock } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -8,6 +9,7 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ const LoginPage: React.FC = () => {
 
     try {
       await login(email, password);
-      window.location.href = '/dashboard';
+      navigate('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Invalid email or password');
     } finally {
@@ -45,7 +47,7 @@ const LoginPage: React.FC = () => {
         <div className="bg-white py-8 px-4 shadow-sm rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-error-50 border border-error-200 text-error-700 px-4 py-3 rounded-md">
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
                 {error}
               </div>
             )}
