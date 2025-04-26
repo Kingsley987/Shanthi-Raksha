@@ -65,21 +65,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div className="h-full flex flex-col justify-between overflow-y-auto relative">
-          {/* Close button (mobile only) */}
-          <div className="absolute top-4 right-4 lg:hidden">
+          {/* Close buttons (mobile only) */}
+          <div className="absolute top-4 right-4 flex flex-col items-center space-y-2 lg:hidden">
             <button
               onClick={onClose}
               className="p-1 rounded-md text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <X className="h-6 w-6" />
             </button>
-          </div>
-
-          {/* Escape Button (mobile only) */}
-          <div className="absolute top-16 right-4 lg:hidden">
             <button
               onClick={onClose}
-              className="p-1 text-xs font-semibold rounded-md text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="text-xs font-semibold px-2 py-1 rounded-md text-neutral-500 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              style={{ border: '1px solid #ccc' }}
             >
               Esc
             </button>
