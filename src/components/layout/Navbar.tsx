@@ -23,11 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
   };
 
   return (
-    <header 
-      className={`bg-white shadow-sm fixed top-0 z-20 w-full transition-all duration-300 ${
-        isSidebarOpen ? 'left-64' : 'left-0'
-      }`}
-    >
+    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-20 w-full">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <button
@@ -47,7 +43,6 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
         <div className="flex items-center space-x-4">
           {isAuthenticated ? (
             <>
-              {/* Notification Button */}
               <div className="relative">
                 <button
                   className="p-2 text-neutral-700 hover:text-primary-700 hover:bg-primary-50 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -66,18 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                       <h3 className="font-medium text-neutral-900">Notifications</h3>
                     </div>
                     <div className="max-h-96 overflow-y-auto">
-                      <a href="#" className="block px-4 py-3 hover:bg-neutral-50 border-b border-neutral-100">
-                        <p className="text-sm font-medium text-neutral-900">Incident #123 status updated</p>
-                        <p className="text-xs text-neutral-500 mt-1">2 minutes ago</p>
-                      </a>
-                      <a href="#" className="block px-4 py-3 hover:bg-neutral-50 border-b border-neutral-100">
-                        <p className="text-sm font-medium text-neutral-900">New safety alert in your area</p>
-                        <p className="text-xs text-neutral-500 mt-1">1 hour ago</p>
-                      </a>
-                      <a href="#" className="block px-4 py-3 hover:bg-neutral-50">
-                        <p className="text-sm font-medium text-neutral-900">Your incident report has been verified</p>
-                        <p className="text-xs text-neutral-500 mt-1">Yesterday</p>
-                      </a>
+                      {/* Notifications list */}
                     </div>
                     <div className="px-4 py-2 border-t border-neutral-100">
                       <a href="#" className="text-sm text-primary-600 hover:text-primary-800">View all notifications</a>
@@ -86,7 +70,6 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, isSidebarOpen }) => {
                 )}
               </div>
 
-              {/* User Menu */}
               <div className="relative">
                 <button
                   className="flex items-center space-x-2 focus:outline-none"
