@@ -1,11 +1,11 @@
 import React from 'react';
-import { 
-  Home, 
-  AlertCircle, 
-  Users, 
-  BarChart, 
-  MessageSquare, 
-  Calendar, 
+import {
+  Home,
+  AlertCircle,
+  Users,
+  BarChart,
+  MessageSquare,
+  Calendar,
   BookOpen,
   Settings,
   HelpCircle,
@@ -36,8 +36,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   ];
 
   return (
-    <aside 
-      className={`fixed left-0 top-0 pt-16 h-full bg-white border-r border-neutral-200 w-64 transition-transform duration-300 ease-in-out z-0 ${
+    <aside
+      className={`fixed left-0 top-0 pt-16 h-full bg-white border-r border-neutral-200 w-64 transition-transform duration-300 ease-in-out z-10 ${
         isOpen ? 'transform-none' : '-translate-x-full lg:transform-none'
       }`}
     >
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               </div>
             </div>
           </div>
-          
+
           <nav className="space-y-1">
             {navItems.map((item) => (
               <a
@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             ))}
           </nav>
         </div>
-        
+
         <div className="px-4 py-6 border-t border-neutral-200">
           <nav className="space-y-1">
             {bottomNavItems.map((item) => (
@@ -80,7 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
               </a>
             ))}
           </nav>
-          
+
           {user && (
             <div className="mt-6 pt-6 border-t border-neutral-200">
               <div className="flex items-center px-2">
