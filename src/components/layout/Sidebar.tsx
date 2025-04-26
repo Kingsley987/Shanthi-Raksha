@@ -1,0 +1,103 @@
+import React from 'react';
+import { 
+  Home, 
+  AlertCircle, 
+  Users, 
+  BarChart, 
+  MessageSquare, 
+  Calendar, 
+  BookOpen,
+  Settings,
+  HelpCircle,
+  Shield
+} from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
+
+interface SidebarProps {
+  isOpen: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
+  const { user } = useAuth();
+
+  const navItems = [
+    { name: 'Dashboard', href: '/', icon: Home },
+    { name: 'Report Incident', href: '/report', icon: AlertCircle },
+    { name: 'Community', href: '/community', icon: Users },
+    { name: 'Crisis Center', href: '/crisis', icon: BarChart },
+    { name: 'Communications', href: '/communications', icon: MessageSquare },
+    { name: 'Events', href: '/events', icon: Calendar },
+    { name: 'Resources', href: '/resources', icon: BookOpen },
+  ];
+
+  const bottomNavItems = [
+    { name: 'Settings', href: '/settings', icon: Settings },
+    { name: 'Help & Support', href: '/help', icon: HelpCircle },
+  ];
+
+  return (
+    <aside 
+      className={`fixed left-0 top-0 pt-16 h-full bg-white border-r border-neutral-200 w-64 transition-transform duration-300 ease-in-out z-0 ${
+        isOpen ? 'transform-none' : '-translate-x-full lg:transform-none'
+      }`}
+    >
+      <div className="h-full flex flex-col justify-between overflow-y-auto">
+        <div className="px-4 py-6">
+          <div className="mb-8 px-2">
+            <div className="flex items-center justify-center space-x-2 p-3 bg-primary-50 rounded-lg">
+              <Shield className="h-6 w-6 text-primary-700" />
+              <div>
+                <p className="text-sm font-medium text-primary-900">Safety Status</p>
+                <p className="text-xs text-primary-700">Normal</p>
+              </div>
+            </div>
+          </div>
+          
+          <nav className="space-y-1">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="group flex items-center px-2 py-2 text-base font-medium rounded-md hover:bg-primary-50 hover:text-primary-700"
+              >
+                <item.icon className="mr-3 h-5 w-5 text-neutral-500 group-hover:text-primary-600" />
+                {item.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+        
+        <div className="px-4 py-6 border-t border-neutral-200">
+          <nav className="space-y-1">
+            {bottomNavItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="group flex items-center px-2 py-2 text-base font-medium rounded-md hover:bg-primary-50 hover:text-primary-700"
+              >
+                <item.icon className="mr-3 h-5 w-5 text-neutral-500 group-hover:text-primary-600" />
+                {item.name}
+              </a>
+            ))}
+          </nav>
+          
+          {user && (
+            <div className="mt-6 pt-6 border-t border-neutral-200">
+              <div className="flex items-center px-2">
+                <div className="h-8 w-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700">
+                  {user.name.charAt(0)}
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-neutral-900">{user.name}</p>
+                  <p className="text-xs text-neutral-500">{user.role}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
