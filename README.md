@@ -2,11 +2,7 @@
 SHANTHI RAKSHA
 A PeaceTech Platform for Public Safety and Peacebuilding
 
-Team Members
-•	Ashwath S
-•	Akshayanivashini
-•	Kingsley Gowrishankar
-•	Sai Hamsika Koyyana
+•	Kingsley Gowrisankar
 
 Problem Statement
 •	lack of an easy, trustworthy way for citizens to report suspicious activities in real-time.
